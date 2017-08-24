@@ -1,0 +1,262 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+K:\HDSIPMC\PRO\IPMC.uvproj
+Project File Date:  09/01/2015
+
+<h2>Output:</h2>
+Build target 'FLASH_DEBUG'
+compiling app.c...
+..\APP\app.c(14): warning:  #223-D: function "srvBoardInit" declared implicitly
+..\APP\app.c(35): warning:  #111-D: statement is unreachable
+compiling IPMC.c...
+..\SRC\IPMC.c(24): warning:  #223-D: function "i2c_dev_write" declared implicitly
+..\SRC\IPMC.c(25): warning:  #223-D: function "i2c_dev_read" declared implicitly
+..\SRC\IPMC.c(84): warning:  #223-D: function "srvAmfDC12vIpmcUpCtrOff" declared implicitly
+..\SRC\IPMC.c(97): warning:  #223-D: function "srvAmfDC12vIpmcUpCtrOn" declared implicitly
+..\SRC\IPMC.c(99): warning:  #223-D: function "srvAmfPayloadOn" declared implicitly
+..\SRC\IPMC.c(201): warning:  #223-D: function "srvAmfPayloadOn" declared implicitly
+..\SRC\IPMC.c(247): warning:  #223-D: function "send_buf" declared implicitly
+..\SRC\IPMC.c(256): warning:  #223-D: function "send_buf" declared implicitly
+..\SRC\IPMC.c(9): warning:  #550-D: variable "inactive_cycle" was set but never used
+compiling serve_amf.c...
+..\INC\comp_uart.h(46): warning:  #47-D: incompatible redefinition of macro "SIZEOF_SERIAL_HEAD" (declared at line 37 of "..\INC\IPMC.h")
+..\INC\comp_uart.h(47): warning:  #47-D: incompatible redefinition of macro "SIZEOF_SERIAL_BODY" (declared at line 38 of "..\INC\IPMC.h")
+..\INC\comp_uart.h(48): warning:  #47-D: incompatible redefinition of macro "SIZEOF_SERIAL_PKT" (declared at line 39 of "..\INC\IPMC.h")
+..\SRC\serve_amf.c(33): warning:  #940-D: missing return statement at end of non-void function "srvAmfDelay"
+..\SRC\serve_amf.c(36): warning:  #223-D: function "memset" declared implicitly
+..\SRC\serve_amf.c(39): warning:  #513-D: a value of type "signed int *" cannot be assigned to an entity of type "unsigned int *"
+..\SRC\serve_amf.c(41): warning:  #223-D: function "usartBufferInit" declared implicitly
+..\SRC\serve_amf.c(75): warning:  #223-D: function "uartCmdAnalize" declared implicitly
+..\SRC\serve_amf.c(80): warning:  #223-D: function "vTaskDelay" declared implicitly
+..\SRC\serve_amf.c(100): warning:  #223-D: function "GX36_heart_beat" declared implicitly
+..\SRC\serve_amf.c(104): warning:  #223-D: function "flush_IO" declared implicitly
+..\SRC\serve_amf.c(105): warning:  #223-D: function "vTaskDelay" declared implicitly
+..\SRC\serve_amf.c(85): warning:  #550-D: variable "n_Counter1" was set but never used
+..\SRC\serve_amf.c(114): warning:  #223-D: function "adcValToHumanInterface" declared implicitly
+..\SRC\serve_amf.c(119): warning:  #223-D: function "vTaskDelay" declared implicitly
+..\SRC\serve_amf.c(127): warning:  #223-D: function "ipmcPowerManagement" declared implicitly
+..\SRC\serve_amf.c(128): warning:  #223-D: function "vTaskDelay" declared implicitly
+..\SRC\serve_amf.c(138): warning:  #223-D: function "shmcFanProc" declared implicitly
+..\SRC\serve_amf.c(139): warning:  #223-D: function "vTaskDelay" declared implicitly
+..\SRC\serve_amf.c(147): warning:  #223-D: function "fish_main" declared implicitly
+..\SRC\serve_amf.c(148): warning:  #223-D: function "flush_IO" declared implicitly
+..\SRC\serve_amf.c(149): warning:  #223-D: function "vTaskDelay" declared implicitly
+..\SRC\serve_amf.c(158): warning:  #223-D: function "vTaskDelay" declared implicitly
+..\SRC\serve_amf.c(176): warning:  #223-D: function "vTaskDelay" declared implicitly
+..\SRC\serve_amf.c(168): warning:  #177-D: variable "counter" was declared but never referenced
+..\SRC\serve_amf.c(169): warning:  #177-D: variable "counter1" was declared but never referenced
+..\SRC\serve_amf.c(270): warning:  #223-D: function "printf" declared implicitly
+..\SRC\serve_amf.c(294): warning:  #223-D: function "bootloader_stage1" declared implicitly
+..\SRC\serve_amf.c(299): warning:  #223-D: function "ipmcInit" declared implicitly
+..\SRC\serve_amf.c(300): warning:  #223-D: function "ShMCInit" declared implicitly
+..\SRC\serve_amf.c(301): warning:  #223-D: function "ina219Init" declared implicitly
+..\SRC\serve_amf.c(302): warning:  #223-D: function "fish_init" declared implicitly
+..\SRC\serve_amf.c(305): warning:  #940-D: missing return statement at end of non-void function "srvBoardInit"
+compiling startup.c...
+..\SRC\startup.c(50): warning:  #188-D: enumerated type mixed with another type
+..\SRC\startup.c(54): warning:  #188-D: enumerated type mixed with another type
+..\SRC\startup.c(55): warning:  #188-D: enumerated type mixed with another type
+..\SRC\startup.c(95): warning:  #188-D: enumerated type mixed with another type
+..\SRC\startup.c(101): warning:  #188-D: enumerated type mixed with another type
+..\SRC\startup.c(107): warning:  #188-D: enumerated type mixed with another type
+..\SRC\startup.c(113): warning:  #188-D: enumerated type mixed with another type
+..\SRC\startup.c(119): warning:  #188-D: enumerated type mixed with another type
+..\SRC\startup.c(126): warning:  #188-D: enumerated type mixed with another type
+..\SRC\startup.c(170): warning:  #188-D: enumerated type mixed with another type
+..\SRC\startup.c(229): warning:  #188-D: enumerated type mixed with another type
+..\SRC\startup.c(230): warning:  #188-D: enumerated type mixed with another type
+..\SRC\startup.c(248): warning:  #188-D: enumerated type mixed with another type
+..\SRC\startup.c(258): warning:  #188-D: enumerated type mixed with another type
+..\SRC\startup.c(268): warning:  #188-D: enumerated type mixed with another type
+..\SRC\startup.c(270): warning:  #188-D: enumerated type mixed with another type
+..\SRC\startup.c(299): warning:  #188-D: enumerated type mixed with another type
+..\SRC\startup.c(330): warning:  #188-D: enumerated type mixed with another type
+..\SRC\startup.c(333): warning:  #188-D: enumerated type mixed with another type
+..\SRC\startup.c(417): warning:  #188-D: enumerated type mixed with another type
+..\SRC\startup.c(420): warning:  #188-D: enumerated type mixed with another type
+..\SRC\startup.c(421): warning:  #188-D: enumerated type mixed with another type
+..\SRC\startup.c(431): warning:  #188-D: enumerated type mixed with another type
+..\SRC\startup.c(432): warning:  #188-D: enumerated type mixed with another type
+..\SRC\startup.c(452): warning:  #188-D: enumerated type mixed with another type
+..\SRC\startup.c(455): warning:  #188-D: enumerated type mixed with another type
+..\SRC\startup.c(456): warning:  #188-D: enumerated type mixed with another type
+..\SRC\startup.c(467): warning:  #188-D: enumerated type mixed with another type
+..\SRC\startup.c(488): warning:  #188-D: enumerated type mixed with another type
+..\SRC\startup.c(490): warning:  #940-D: missing return statement at end of non-void function "cfgPeriphExit"
+..\SRC\startup.c(499): warning:  #188-D: enumerated type mixed with another type
+..\SRC\startup.c(501): warning:  #940-D: missing return statement at end of non-void function "cfgPeriphExit5Disable"
+linking...
+Program Size: Code=20284 RO-data=2284 RW-data=184 ZI-data=24272  
+FromELF: creating hex file...
+User command #1: fromelf.exe --bin -o ./Output/IPMC_FLASH.bin ./Output/IPMC.axf
+".\Output\IPMC.axf" - 0 Error(s), 76 Warning(s).
+Load "K:\\HDSIPMC\\PRO\\Output\\IPMC.AXF" 
+* JLink Info: Device "STM32F207ZG" selected (1024 KB flash, 64 KB RAM).
+Set JLink Project File to "K:\HDSIPMC\PRO\JLinkSettings.ini"
+ 
+JLink info:
+------------
+DLL: V4.40c, compiled Jan 24 2012 09:30:33
+Firmware: J-Link ARM V8 compiled Nov 25 2013 19:20:08
+Hardware: V8.00
+S/N : 17935099 
+Feature(s) : RDI,FlashDL,FlashBP,JFlash 
+ 
+* JLink Info: Found SWD-DP with ID 0x2BA01477
+* JLink Info: TPIU fitted.
+* JLink Info: ETM fitted.
+* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
+* JLink Info: Found Cortex-M3 r2p0, Little endian.
+ROMTableAddr = 0xE00FF003
+* JLink Info: Found SWD-DP with ID 0x2BA01477
+* JLink Info: TPIU fitted.
+* JLink Info: ETM fitted.
+* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
+* JLink Info: Found Cortex-M3 r2p0, Little endian.
+ 
+Target info:
+------------
+Device: STM32F207ZG
+VTarget = 3.364V
+State of Pins: 
+TCK: 0, TDI: 0, TDO: 0, TMS: 0, TRES: 1, TRST: 1
+Hardware-Breakpoints: 6
+Software-Breakpoints: 8192
+Watchpoints:          4
+JTAG speed: 4000 kHz
+ 
+Full Chip Erase Done.
+Programming Done.
+Verify OK.
+* JLink Info: Found SWD-DP with ID 0x2BA01477
+* JLink Info: TPIU fitted.
+* JLink Info: ETM fitted.
+* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
+* JLink Info: Found Cortex-M3 r2p0, Little endian.
+Application running ...
+Build target 'FLASH_DEBUG'
+compiling app.c...
+..\APP\app.c(14): warning:  #223-D: function "srvBoardInit" declared implicitly
+..\APP\app.c(34): warning:  #111-D: statement is unreachable
+linking...
+Program Size: Code=20268 RO-data=2284 RW-data=184 ZI-data=24272  
+FromELF: creating hex file...
+User command #1: fromelf.exe --bin -o ./Output/IPMC_FLASH.bin ./Output/IPMC.axf
+".\Output\IPMC.axf" - 0 Error(s), 2 Warning(s).
+Build target 'FLASH_DEBUG'
+linking...
+Program Size: Code=20268 RO-data=2284 RW-data=184 ZI-data=24272  
+FromELF: creating hex file...
+User command #1: fromelf.exe --bin -o ./Output/IPMC_FLASH.bin ./Output/IPMC.axf
+".\Output\IPMC.axf" - 0 Error(s), 0 Warning(s).
+Load "K:\\HDSIPMC\\PRO\\Output\\IPMC.AXF" 
+* JLink Info: Device "STM32F207ZG" selected (1024 KB flash, 64 KB RAM).
+Set JLink Project File to "K:\HDSIPMC\PRO\JLinkSettings.ini"
+ 
+JLink info:
+------------
+DLL: V4.40c, compiled Jan 24 2012 09:30:33
+Firmware: J-Link ARM V8 compiled Nov 25 2013 19:20:08
+Hardware: V8.00
+S/N : 17935099 
+Feature(s) : RDI,FlashDL,FlashBP,JFlash 
+ 
+* JLink Info: Found SWD-DP with ID 0x2BA01477
+* JLink Info: TPIU fitted.
+* JLink Info: ETM fitted.
+* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
+* JLink Info: Found Cortex-M3 r2p0, Little endian.
+ROMTableAddr = 0xE00FF003
+* JLink Info: Found SWD-DP with ID 0x2BA01477
+* JLink Info: TPIU fitted.
+* JLink Info: ETM fitted.
+* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
+* JLink Info: Found Cortex-M3 r2p0, Little endian.
+ 
+Target info:
+------------
+Device: STM32F207ZG
+VTarget = 3.358V
+State of Pins: 
+TCK: 0, TDI: 0, TDO: 0, TMS: 0, TRES: 1, TRST: 1
+Hardware-Breakpoints: 6
+Software-Breakpoints: 8192
+Watchpoints:          4
+JTAG speed: 4000 kHz
+ 
+***JLink Error: Can not read register 15 (R15) while CPU is running
+**JLink Warning: CPU could not be halted
+***JLink Error: Could not read memory location 0x20000000 when trying to clear soft RAM BP
+Could not start CPU core. (ErrorCode: -1)
+***JLink Error: Can not read register 20 (CFBP) while CPU is running
+**JLink Warning: CPU could not be halted
+***JLink Error: Could not start CPU core. (ErrorCode: -1)
+***JLink Error: CPU is not halted
+***JLink Error: Can not read register 15 (R15) while CPU is running
+**JLink Warning: CPU could not be halted
+***JLink Error: Could not read memory location 0x20000000 when trying to clear soft RAM BP
+Could not start CPU core. (ErrorCode: -1)
+Full Chip Erase Failed!
+Load "K:\\HDSIPMC\\PRO\\Output\\IPMC.AXF" 
+* JLink Info: Device "STM32F207ZG" selected (1024 KB flash, 64 KB RAM).
+Set JLink Project File to "K:\HDSIPMC\PRO\JLinkSettings.ini"
+ 
+JLink info:
+------------
+DLL: V4.40c, compiled Jan 24 2012 09:30:33
+Firmware: J-Link ARM V8 compiled Nov 25 2013 19:20:08
+Hardware: V8.00
+S/N : 17935099 
+Feature(s) : RDI,FlashDL,FlashBP,JFlash 
+ 
+**JLink Warning: RESET (pin 15) high, but should be low. Please check target hardware.
+***JLink Error: Supply voltage too low (1 Volt is required, Measured: 0.0 Volt).
+Please check target power.
+Load "K:\\HDSIPMC\\PRO\\Output\\IPMC.AXF" 
+* JLink Info: Device "STM32F207ZG" selected (1024 KB flash, 64 KB RAM).
+Set JLink Project File to "K:\HDSIPMC\PRO\JLinkSettings.ini"
+ 
+JLink info:
+------------
+DLL: V4.40c, compiled Jan 24 2012 09:30:33
+Firmware: J-Link ARM V8 compiled Nov 25 2013 19:20:08
+Hardware: V8.00
+S/N : 17935099 
+Feature(s) : RDI,FlashDL,FlashBP,JFlash 
+ 
+* JLink Info: Found SWD-DP with ID 0x2BA01477
+* JLink Info: TPIU fitted.
+* JLink Info: ETM fitted.
+* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
+* JLink Info: Found Cortex-M3 r2p0, Little endian.
+ROMTableAddr = 0xE00FF003
+* JLink Info: Found SWD-DP with ID 0x2BA01477
+* JLink Info: TPIU fitted.
+* JLink Info: ETM fitted.
+* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
+* JLink Info: Found Cortex-M3 r2p0, Little endian.
+**JLink Warning: T-bit of XPSR is 0 but should be 1. Changed to 1.
+ 
+Target info:
+------------
+Device: STM32F207ZG
+VTarget = 3.358V
+State of Pins: 
+TCK: 0, TDI: 0, TDO: 0, TMS: 0, TRES: 1, TRST: 1
+Hardware-Breakpoints: 6
+Software-Breakpoints: 8192
+Watchpoints:          4
+JTAG speed: 4000 kHz
+ 
+Full Chip Erase Done.
+Programming Done.
+Verify OK.
+* JLink Info: Found SWD-DP with ID 0x2BA01477
+* JLink Info: TPIU fitted.
+* JLink Info: ETM fitted.
+* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
+* JLink Info: Found Cortex-M3 r2p0, Little endian.
+Application running ...
