@@ -22,8 +22,8 @@ int main()
            NULL, ( tskIDLE_PRIORITY  + 4 ), &xHandle[xTASK_CMD_ANALIZY] );
     xTaskCreate( vFishEcho,           (signed char *)        "FISH_ECHO",          1024, 
             NULL, ( tskIDLE_PRIORITY  + 6 ), &xHandle[xTASK_FISH_ECHO] );
-    // xTaskCreate(vHeartBeatDect, (signed char *)         "HEART_BEAT",        configMINIMAL_STACK_SIZE,
-    //        NULL, (tskIDLE_PRIORITY  + 7 ), &xHandle[xTASK_HEART_BETA]);
+    xTaskCreate(vHeartBeatDect, (signed char *)         "HEART_BEAT",        configMINIMAL_STACK_SIZE,
+           NULL, (tskIDLE_PRIORITY  + 7 ), &xHandle[xTASK_HEART_BETA]);
     
     xTaskCreate( vPowerManageTask, (signed char *) "POWER_MNG",      configMINIMAL_STACK_SIZE, 
             NULL, ( tskIDLE_PRIORITY  + 8 ), &xHandle[xTASK_POWER_MNG] );

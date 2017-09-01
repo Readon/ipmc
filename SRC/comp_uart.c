@@ -406,9 +406,9 @@ int uartCmdAnalize(unsigned isalarm)
                         *data = 0;
                         len = SIZEOF_SERIAL_PKT+sizeof(int)+2;
                     }
-                    else
+                    else//0xff
                     {
-                        //memcpy(data, local_data_pool.sensorStaTab.vtg.fpga_core_vtg, sizeof(local_data_pool.sensorStaTab.vtg));
+                        memcpy(data, &local_data_pool.sensorStaTab.vtg.TLR_MEM0_0V75, sizeof(local_data_pool.sensorStaTab.vtg));
                         len = SIZEOF_SERIAL_PKT + sizeof(local_data_pool.sensorStaTab.vtg);
                     }
                 break;

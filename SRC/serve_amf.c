@@ -240,8 +240,8 @@ TLR_Co   %3d  TLR_En  %3d\r\n\
 FP1_Co   %3d  FP1_En  %3d\r\n\
 FP2_Co   %3d  FP2_En  %3d\r\n\
 FP3_Co   %3d  FP3_En  %3d\r\n\
-FP4_Co   %3d  FP4_Co  %3d\r\n\
-FP5_Co   %3d  FP5_Co  %3d\r\n\
+FP4_Co   %3d  FP4_En  %3d\r\n\
+FP5_Co   %3d  FP5_En  %3d\r\n\
 FP6_Co   %3d  \r\n\
 Left_in  %3d  Right_in   %3d  \r\n\
 TLR_out   %3d\r\n\
