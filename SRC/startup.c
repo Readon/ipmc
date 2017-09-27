@@ -534,7 +534,7 @@ void cfgOcTimer(TIM_TypeDef* tim)
     /* PWM1 Mode configuration: Channel2 */
     TIM_OCInitStructure.TIM_OCMode = TIM_OCMode_PWM1;
     TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable;
-    TIM_OCInitStructure.TIM_Pulse = 20;//50%
+    TIM_OCInitStructure.TIM_Pulse = 30;//50%
     TIM_OCInitStructure.TIM_OCPolarity = TIM_OCPolarity_High;
     
     TIM_OC3Init(tim, &TIM_OCInitStructure);

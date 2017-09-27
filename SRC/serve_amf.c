@@ -44,7 +44,50 @@ void srvAmfEarlyInit()
 
 void srvAmfLoadDef()
 {
-    
+    local_data_pool.sensorLimitTab.temp[0] = 80;
+    local_data_pool.sensorLimitTab.temp[1] = 80;
+    local_data_pool.sensorLimitTab.temp[2] = 80;
+    local_data_pool.sensorLimitTab.temp[3] = 80;
+    local_data_pool.sensorLimitTab.temp[4] = 80;
+    local_data_pool.sensorLimitTab.temp[5] = 80;
+    local_data_pool.sensorLimitTab.temp[6] = 80;
+    local_data_pool.sensorLimitTab.temp[7] = 80;
+    local_data_pool.sensorLimitTab.temp[8] = 80;
+    local_data_pool.sensorLimitTab.temp[9] = 80;
+    local_data_pool.sensorLimitTab.temp[10] = 80;
+    local_data_pool.sensorLimitTab.temp[11] = 80;
+    local_data_pool.sensorLimitTab.temp[12] = 80;
+    local_data_pool.sensorLimitTab.temp[13] = 80;
+    local_data_pool.sensorLimitTab.temp[14] = 80;
+    local_data_pool.sensorLimitTab.temp[15] = 80;
+
+    local_data_pool.sensorLimitTab.vtg.TLR_MEM0_0V75 = 77;
+    local_data_pool.sensorLimitTab.vtg.TLR_MEM0_1V5  = 150;
+    local_data_pool.sensorLimitTab.vtg.TLR_MEM0_1V5  = 150;
+    local_data_pool.sensorLimitTab.vtg.TLR_CORE_0V95  = 95;
+    local_data_pool.sensorLimitTab.vtg.FP_MEM0_0V75  = 75;
+    local_data_pool.sensorLimitTab.vtg.FP_MEM0_1V5  = 150;
+    local_data_pool.sensorLimitTab.vtg.DC1V8  = 180;
+    local_data_pool.sensorLimitTab.vtg.DC1V2  = 120;
+    local_data_pool.sensorLimitTab.vtg.AUX3V3  = 330;
+    local_data_pool.sensorLimitTab.vtg.DC12V  = 1200;
+    local_data_pool.sensorLimitTab.vtg.FP1_DC1V0  = 100;
+    local_data_pool.sensorLimitTab.vtg.FP2_DC1V0  = 100;     
+    local_data_pool.sensorLimitTab.vtg.FP3_DC1V0  = 100;
+    local_data_pool.sensorLimitTab.vtg.FP4_DC1V0  = 100;
+    local_data_pool.sensorLimitTab.vtg.FP5_DC1V0  = 100;
+    local_data_pool.sensorLimitTab.vtg.FP6_DC1V0  = 100;
+    local_data_pool.sensorLimitTab.vtg.ISL_VCORE_IMON  = 100;
+    local_data_pool.sensorLimitTab.vtg.FP3V3  = 330;
+    local_data_pool.sensorLimitTab.vtg.MB3V3  = 330;
+    local_data_pool.sensorLimitTab.vtg.MB2V5  = 250;
+    local_data_pool.sensorLimitTab.vtg.FP1V8  = 180;
+    local_data_pool.sensorLimitTab.vtg.FP1V2  = 120;
+    local_data_pool.sensorLimitTab.vtg.PLX8_1V0  = 100;  
+    local_data_pool.sensorLimitTab.vtg.PLX4_1V0  = 100;
+    local_data_pool.sensorLimitTab.vtg.MB5V  = 500;
+
+
 }
 
 void srvAmfWaitBit()

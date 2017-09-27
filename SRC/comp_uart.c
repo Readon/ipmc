@@ -332,11 +332,11 @@ int uartCmdAnalize(unsigned isalarm)
 		        case IPMC_SENSOR_TYPE_VTG_CUR:
 		        if(id < NUM_OF_VTG_SENSOR)
 		        {
-		            //*((int *)&local_data_pool.sensorLimitTab.vtg.fpga_core_vtg[0] + id) = *((int *)(pget+SIZEOF_SERIAL_PKT));
+		            *((int *)&local_data_pool.sensorLimitTab.vtg.fpga_core_vtg[0] + id) = *((int *)(pget+SIZEOF_SERIAL_PKT));
                         }
 		        if(id == 0xff)
 		        {
-		            //memcpy(local_data_pool.sensorLimitTab.vtg.fpga_core_vtg, pget+SIZEOF_SERIAL_PKT, sizeof(local_data_pool.sensorLimitTab.vtg));
+		            memcpy(local_data_pool.sensorLimitTab.vtg.fpga_core_vtg, pget+SIZEOF_SERIAL_PKT, sizeof(local_data_pool.sensorLimitTab.vtg));
 		        }
 		        break;
 		        
@@ -418,8 +418,9 @@ int uartCmdAnalize(unsigned isalarm)
                     len = SIZEOF_SERIAL_PKT+sizeof(int)+2;
                 break;
                 case IPMC_SENSOR_TYPE_POWER://board power
-                    *data = *sys_data.power;
-                    len = SIZEOF_SERIAL_PKT+sizeof(int)+2;
+                    // *data = *sys_data.fpgapower;
+                    memcpy(data, sys_data.fpgapower, 24);
+                    len = SIZEOF_SERIAL_PKT+sizeof(int) * 6+2;
                 break;
                 case IPMC_SENSOR_TYPE_CPU_HEALTH://CPU health
                     *data  = local_data_pool.sensorStaTab.cpuHealth; 
@@ -493,7 +494,7 @@ int uartCmdAnalize(unsigned isalarm)
                 case IPMC_SENSOR_TYPE_VTG_CUR://voltage
                     if(id < NUM_OF_VTG_SENSOR)
                     {
-                        //*data = * (local_data_pool.sensorLimitTab.vtg.fpga_core_vtg +id);
+                        *data = * (&local_data_pool.sensorLimitTab.vtg.TLR_MEM0_0V75 +id);
                         len = SIZEOF_SERIAL_PKT+sizeof(int)+2;
                     }
                     else if(id < 0xFF)
@@ -503,7 +504,7 @@ int uartCmdAnalize(unsigned isalarm)
                     }
                     else
                     {
-                        //memcpy(data, local_data_pool.sensorLimitTab.vtg.fpga_core_vtg, sizeof(local_data_pool.sensorLimitTab.vtg));
+                        memcpy(data, &local_data_pool.sensorLimitTab.vtg.TLR_MEM0_0V75, sizeof(local_data_pool.sensorLimitTab.vtg));
                         len = SIZEOF_SERIAL_PKT+sizeof(local_data_pool.sensorLimitTab.vtg)+2;
                     }
                     
