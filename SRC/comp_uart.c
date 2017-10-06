@@ -321,25 +321,34 @@ int uartCmdAnalize(unsigned isalarm)
 		        case IPMC_SENSOR_TYPE_TEMPERATURE:
 		        if(id < NUM_OF_TEMP_SENSOR)
 		        {
-    		            local_data_pool.sensorLimitTab.temp[id] = *(int *)(pget+SIZEOF_SERIAL_PKT);
-    		        }
-    		        if(id == 0xff)
-                        {
-                            memcpy(local_data_pool.sensorLimitTab.temp, pget+SIZEOF_SERIAL_PKT, sizeof(local_data_pool.sensorLimitTab.temp));
-                        }
+		            local_data_pool.sensorLimitTab.temp[id] = *(int *)(pget+SIZEOF_SERIAL_PKT);
+		        }
+		        if(id == 0xff)
+                {
+                    memcpy(local_data_pool.sensorLimitTab.temp, pget+SIZEOF_SERIAL_PKT, sizeof(local_data_pool.sensorLimitTab.temp));
+                }
 		        break;
 
 		        case IPMC_SENSOR_TYPE_VTG_CUR:
 		        if(id < NUM_OF_VTG_SENSOR)
 		        {
-		            *((int *)&local_data_pool.sensorLimitTab.vtg.fpga_core_vtg[0] + id) = *((int *)(pget+SIZEOF_SERIAL_PKT));
-                        }
+		            *((int *)&local_data_pool.sensorLimitTab.vtg.TLR_MEM0_0V75 + id) = *((int *)(pget+SIZEOF_SERIAL_PKT));
+                }
 		        if(id == 0xff)
 		        {
-		            memcpy(local_data_pool.sensorLimitTab.vtg.fpga_core_vtg, pget+SIZEOF_SERIAL_PKT, sizeof(local_data_pool.sensorLimitTab.vtg));
+		            memcpy(&local_data_pool.sensorLimitTab.vtg.TLR_MEM0_0V75, pget+SIZEOF_SERIAL_PKT, sizeof(local_data_pool.sensorLimitTab.vtg));
 		        }
 		        break;
-		        
+		        case IPMC_SENSOR_TYPE_POWER:
+		        if(id < NUM_OF_POWER_SENSOR)
+		        {
+		            local_data_pool.sensorLimitTab.power[id] = *((int *)(pget+SIZEOF_SERIAL_PKT));
+		        }
+		        if(id == 0xFF)
+		        {
+		            memcpy(&local_data_pool.sensorLimitTab.power, pget+SIZEOF_SERIAL_PKT, sizeof(local_data_pool.sensorLimitTab.power));
+		        }
+		        break;
 		        default:break;
 		    }
 		}
@@ -486,8 +495,8 @@ int uartCmdAnalize(unsigned isalarm)
                     }
                     else
                     {
-                        memcpy(data, local_data_pool.sensorLimitTab.temp, sizeof(local_data_pool.sensorLimitTab.temp));
-                        len = SIZEOF_SERIAL_PKT+sizeof(local_data_pool.sensorLimitTab.temp)+2;
+                        memcpy(data, local_data_pool.sensorLimitTab.temp, NUM_OF_TEMP_SENSOR*4);
+                        len = SIZEOF_SERIAL_PKT+NUM_OF_TEMP_SENSOR*4+2;
                     }
                 break;
                 
@@ -509,7 +518,23 @@ int uartCmdAnalize(unsigned isalarm)
                     }
                     
                 break;
-                
+                case IPMC_SENSOR_TYPE_POWER:
+                if(id < NUM_OF_POWER_SENSOR)
+                {
+                    *data = local_data_pool.sensorLimitTab.power[id];
+                    len = SIZEOF_SERIAL_PKT+sizeof(int)+2;
+                }
+                else if(id < 0xFF)
+                {
+                    *data =  0x00;
+                    len = SIZEOF_SERIAL_PKT+sizeof(int)+2;
+                }
+                else
+                {
+                    memcpy(data, &local_data_pool.sensorLimitTab.power, sizeof(local_data_pool.sensorLimitTab.power));
+                    len = SIZEOF_SERIAL_PKT+sizeof(local_data_pool.sensorLimitTab.power)+2;
+                }
+                break;
                 default:break;
             }
 

@@ -519,11 +519,13 @@ void cfgCpld1KhzTimer(TIM_TypeDef* tim)
     TIM_CtrlPWMOutputs(tim, ENABLE);
 
 }
-void cfgOcTimer(TIM_TypeDef* tim)
+void cfgOcTimer(TIM_TypeDef* tim, u8 scale)
 {
     TIM_TimeBaseInitTypeDef  TIM_TimeBaseStructure;
     TIM_OCInitTypeDef  TIM_OCInitStructure;
 
+    TIM_Cmd(tim, DISABLE);
+ 
     TIM_TimeBaseStructure.TIM_Period = 40;//
     TIM_TimeBaseStructure.TIM_Prescaler = 59;//
     TIM_TimeBaseStructure.TIM_ClockDivision = 0;
@@ -534,7 +536,10 @@ void cfgOcTimer(TIM_TypeDef* tim)
     /* PWM1 Mode configuration: Channel2 */
     TIM_OCInitStructure.TIM_OCMode = TIM_OCMode_PWM1;
     TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable;
-    TIM_OCInitStructure.TIM_Pulse = 30;//50%
+    if(scale == 100)
+        TIM_OCInitStructure.TIM_Pulse = 0;
+    else
+        TIM_OCInitStructure.TIM_Pulse = 40-40 * ((scale%100))/100.0;//50%   /*0对应风扇转速-100%*/
     TIM_OCInitStructure.TIM_OCPolarity = TIM_OCPolarity_High;
     
     TIM_OC3Init(tim, &TIM_OCInitStructure);
@@ -564,7 +569,7 @@ int cfgSysIo()
     cfgPeriphI2c();
     cfgPeriphGPtimer();
     cfgSysTickTimer(SYSTEM_TICK_TIMER);
-    cfgOcTimer(SYSTEM_OC_TIMER);
+    cfgOcTimer(SYSTEM_OC_TIMER, 45);
     cfgCpld1KhzTimer(SYSTEM_CPLD1K_TIMER);
     cfgPeripGpio();
     cfgPeriphWd();

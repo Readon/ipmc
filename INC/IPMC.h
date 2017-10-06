@@ -37,6 +37,7 @@
 #define SIZEOF_SERIAL_HEAD    sizeof(SERIAL_HEAD)
 #define SIZEOF_SERIAL_BODY    sizeof(SERIAL_BODY)
 #define SIZEOF_SERIAL_PKT       (sizeof(SERIAL_HEAD) + sizeof(SERIAL_BODY))
+#define NUM_OF_POWER_SENSOR   6
 #define NUM_OF_TEMP_SENSOR   16
 #define NUM_OF_VTG_SENSOR    24
 //
@@ -63,6 +64,7 @@ typedef struct IPMC_sensor_alarm_t{
 typedef struct IPMC_sensor_limit_t{
 	signed int temp[NUM_OF_TEMP_SENSOR];      
 	VOLTAGE_MONITOR_t vtg;        //limit值为真实值 x 100
+	u32 power[NUM_OF_POWER_SENSOR];
 }IPMC_SENSOR_LMT;
 
 typedef struct FRU_addr_t{

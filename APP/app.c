@@ -16,8 +16,8 @@ int main()
             NULL, ( tskIDLE_PRIORITY  + 1 ), &xHandle[xTASK_DEBUG_LED] );
     xTaskCreate( vSensorScanTask, (signed char *)        "SENSORSCAN",         configMINIMAL_STACK_SIZE, 
             NULL, ( tskIDLE_PRIORITY  + 2 ), &xHandle[xTASK_SENSOR_SCAN] );
-   // xTaskCreate( vCaseManagemene, (signed char *)     "ALARM_SCAN",      configMINIMAL_STACK_SIZE, 
-   //         NULL, ( tskIDLE_PRIORITY  + 3 ), &xHandle[xTASK_ALARM_SCAN] );
+   xTaskCreate( vCaseManagemene, (signed char *)     "ALARM_SCAN",      configMINIMAL_STACK_SIZE, 
+           NULL, ( tskIDLE_PRIORITY  + 3 ), &xHandle[xTASK_ALARM_SCAN] );
     xTaskCreate(vUartCmcAnalize, (signed char *)       "CMD_ANALIZY",     1024, 
            NULL, ( tskIDLE_PRIORITY  + 4 ), &xHandle[xTASK_CMD_ANALIZY] );
     xTaskCreate( vFishEcho,           (signed char *)        "FISH_ECHO",          1024, 

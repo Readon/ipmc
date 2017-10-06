@@ -28,13 +28,9 @@ int shmcIccmGet(unsigned char cmd, unsigned int *data);
 
 const TEMP_FAN_LEVEL_t fanLevelCtrlTb[3]=
 {
-#ifdef SHMC_DEBUG
-    {40,6000},
-#elif
-    {55,6000},
-#endif
-    {80,8000},
-    {100,9000}
+    {40,45},
+    {75,60},
+    {100,70}
 };
 
 ICCM_CMD_t casecmd;
@@ -461,12 +457,17 @@ char ICCMParameterSet()
     return 0;
 }
 
+char ipmcFanLevelSet(u8 scale)
+{
+    cfgOcTimer(TIM4, scale);
+    return 0;
+}
 //every one second exec
 char shmcFanProc()
 {
     static unsigned short srvFlg = 0;
-    static int srvCnt = 0;
-    static char dftSpd = 0;
+    static int srvCnt = 0;/*timeout counter*/
+    static char dftSpd = 0;/*default speed*/
     char i = 0;
     if(local_data_pool.sensorAlarmTab.temp != 0)
     {
@@ -475,9 +476,9 @@ char shmcFanProc()
             //check what the alarm level is
             while(!((local_data_pool.sensorAlarmTab.temp >> i) & 0x1) && i<16)
                 i++;
-            if(local_data_pool.sensorStaTab.temp[i] > fanLevelCtrlTb[EMERG].temperature)
+            if(local_data_pool.sensorStaTab.temp[i] >= fanLevelCtrlTb[EMERG].temperature)
             {
-                if(shmcCaseSet(SET_FAN_LEVEL, (int *)&fanLevelCtrlTb[EMERG].fanLevel) == 0)
+                if(ipmcFanLevelSet(fanLevelCtrlTb[EMERG].fanLevel) == 0)
                 {
                     srvFlg = local_data_pool.sensorAlarmTab.temp;
                     srvCnt = 1;//start timer
@@ -485,7 +486,7 @@ char shmcFanProc()
             }
             else
             {
-                if(shmcCaseSet(SET_FAN_LEVEL, (int *)&fanLevelCtrlTb[ALARM].fanLevel) == 0)
+                if(ipmcFanLevelSet(fanLevelCtrlTb[EMERG].fanLevel) == 0)
                 {
                     srvFlg = local_data_pool.sensorAlarmTab.temp;
                     srvCnt = 1;
@@ -497,15 +498,16 @@ char shmcFanProc()
     srvCnt = srvCnt>0?(++srvCnt):0;
     if(srvCnt > 300)//5 minutes
     {
-        if(shmcCaseSet(SET_FAN_LEVEL, (int *)&fanLevelCtrlTb[NORMAL].fanLevel)==0)
-        {
-            srvCnt = 0;
-            srvFlg = 0;
-        }
+        if(local_data_pool.sensorStaTab.temp[i] < (fanLevelCtrlTb[EMERG].temperature-10))
+            if(ipmcFanLevelSet(fanLevelCtrlTb[NORMAL].fanLevel) == 0)
+            {
+                srvCnt = 0;
+                srvFlg = 0;
+            }
     }
     if(srvCnt == 0 && dftSpd == 0)
     {
-        if(shmcCaseSet(SET_FAN_LEVEL, (int *)&fanLevelCtrlTb[NORMAL].fanLevel) == 0)
+        if(ipmcFanLevelSet(fanLevelCtrlTb[NORMAL].fanLevel) == 0)
         {
             dftSpd = 1;
         }

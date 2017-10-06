@@ -86,7 +86,12 @@ void srvAmfLoadDef()
     local_data_pool.sensorLimitTab.vtg.PLX8_1V0  = 100;  
     local_data_pool.sensorLimitTab.vtg.PLX4_1V0  = 100;
     local_data_pool.sensorLimitTab.vtg.MB5V  = 500;
-
+    local_data_pool.sensorLimitTab.power[0] = 30;
+    local_data_pool.sensorLimitTab.power[1] = 30;
+    local_data_pool.sensorLimitTab.power[2] = 30;
+    local_data_pool.sensorLimitTab.power[3] = 30;
+    local_data_pool.sensorLimitTab.power[4] = 30;
+    local_data_pool.sensorLimitTab.power[5] = 30;
 
 }
 
@@ -194,7 +199,7 @@ void vHeartBeatDect(void * pvParameters)
     while(1)
     {
         hb = local_data_pool.gx36HeartBeat;
-        vTaskDelay(2500);
+        vTaskDelay(10000);
         if(local_data_pool.gx36HeartBeat != hb)
             local_data_pool.sensorStaTab.cpuHealth = 1;
         else
