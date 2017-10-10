@@ -442,7 +442,7 @@ char tmpCmpLimit(void)
                 flag |= (1<<i);
         }
         
-        if(local_data_pool.sensorStaTab.temp[i] > fanLevelCtrlTb[0].temperature)
+        if(local_data_pool.sensorStaTab.temp[i] > fanLevelCtrlTb[1].temperature)
             local_data_pool.sensorAlarmTab.temp |= (1<<i);
     }
     if(flag == 0xFFFF)

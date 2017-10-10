@@ -155,8 +155,8 @@ void vSensorScanTask(void * pvParameters)
 
         adcValToHumanInterface();
         isl68201ReadFpgaPower();
-        //adcCmpLimit();
-        //tmpCmpLimit();
+        // adcCmpLimit();
+        tmpCmpLimit();
         /* Suspend this task until is resume by end of adc convertion. */
         //vTaskSuspend(xHandle[xTASK_SENSOR_SCAN]);
         vTaskDelay(100);
@@ -324,8 +324,9 @@ void srvAmfDisplay(void)
 	                       sys_data.sys_temp[6],  sys_data.sys_temp[5],
 	                       sys_data.sys_temp[10], sys_data.sys_temp[11],
 	                       sys_data.sys_temp[13], sys_data.sys_temp[12],
-	                       sys_data.sys_temp[14], sys_data.sys_temp[15],
-                           sys_data.sys_temp[8],  sys_data.sys_temp[7],
+	                       sys_data.sys_temp[14], 
+	                       sys_data.sys_temp[15],sys_data.sys_temp[8], 
+	                       sys_data.sys_temp[7],
 	                       sys_data.fpgapower[0],sys_data.fpgapower[1],sys_data.fpgapower[2],sys_data.fpgapower[3],sys_data.fpgapower[4],sys_data.fpgapower[5],
 	                       sys_data.clock_cycle/8640000,sys_data.clock_cycle/100%86400/3600,sys_data.clock_cycle/100%3600/60,sys_data.clock_cycle/100%60,
 	                       BDNAME, BDSER, BDVER, BUILDDATE, IPMC_VER_STR);

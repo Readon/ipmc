@@ -28,7 +28,7 @@ int shmcIccmGet(unsigned char cmd, unsigned int *data);
 
 const TEMP_FAN_LEVEL_t fanLevelCtrlTb[3]=
 {
-    {40,45},
+    {35,45},/*fan level, temperature*/
     {75,60},
     {100,70}
 };
