@@ -381,21 +381,24 @@ char max6581ReadTemp(void)
         temperature = 0;
         for(j=0;j<1;j++)
         {
-			if(max6581ReadByte(I2C3, i+1, &sys_data.sys_temp[i]) != 0 )
+			if(max6581ReadByte(I2C3, i+1, &temperature) != 0 )
 			{
-				sys_data.sys_temp[i] = 0xFFFFFFFF;//如果读取i2C总线失败，则记录此处电压值为出错0xff
+				// sys_data.sys_temp[i] = 0xFFFFFFFF;//如果读取i2C总线失败，则记录此处电压值为出错0xff
+				sys_data.sys_temp[i] = sys_data.sys_temp[i];
 			}
 			else
 			{
-				if(sys_data.sys_temp[i] > 150)
+				if(temperature > 150 || temperature == 0)
 				    continue;
 			    validcnt++;
-			    temperature += sys_data.sys_temp[i];
+			    // temperature += sys_data.sys_temp[i];
+			    sys_data.sys_temp[i] = temperature;
 			}
         }
         //calculate average
-        validcnt = validcnt>0?validcnt:5;
-        sys_data.sys_temp[i] = temperature/validcnt;
+        // validcnt = validcnt>0?validcnt:5;
+        // sys_data.sys_temp[i] = temperature/validcnt;
+        
     }
     // max6581ReadManID(I2C1);
     for(i = 8; i < 16; i++)
@@ -404,22 +407,32 @@ char max6581ReadTemp(void)
         temperature = 0;
         for(j=0;j<1;j++)
         {
-			if(max6581ReadByte(I2C1, i-7, &sys_data.sys_temp[i]) != 0)
+			if(max6581ReadByte(I2C1, i-7, &temperature) != 0)
 			{
-				sys_data.sys_temp[i] = 0xFFFFFFFF;//如果读取i2C总线失败，则记录此处电压值为出错0xff
+				// sys_data.sys_temp[i] = 0xFFFFFFFF;//如果读取i2C总线失败，则记录此处电压值为出错0xff
+				sys_data.sys_temp[i] = sys_data.sys_temp[i];
 			}
 			else
 			{
-				if(sys_data.sys_temp[i] > 150)//超过150度认为异常
+				if(temperature > 150)//超过150度认为异常
 				    continue;
 			    validcnt++;
-			    temperature += sys_data.sys_temp[i];
+			    // temperature += sys_data.sys_temp[i];
+			    sys_data.sys_temp[i] = temperature;
 			}
         }
         //calculate average
-        validcnt = validcnt>0?validcnt:5;
-        sys_data.sys_temp[i] = temperature/validcnt;
+        // validcnt = validcnt>0?validcnt:5;
+        // sys_data.sys_temp[i] = temperature/validcnt;        
     }
+    
+    temperature = sys_data.sys_temp[6];
+    sys_data.sys_temp[6] = sys_data.sys_temp[15];
+    sys_data.sys_temp[15] = temperature;
+
+    temperature = sys_data.sys_temp[7];
+    sys_data.sys_temp[7] = sys_data.sys_temp[14];
+    sys_data.sys_temp[14] = temperature;
     return 0;
 }
 

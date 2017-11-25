@@ -69,6 +69,7 @@ ISL_VCORE_IMON
 #define ADC_CONVERT_VAL   (float)0.0824 //ADC_CONVERT_VAL = ADC_REF_VOLTAGE*10/(1<<ADC_CONVERT_BITS)
 #define ADC_CONVERT_VAL_12DC  (float)0.4944
 #define ADC_CONVERT_VAL_5DC  (float)0.1662
+#define ADC_AUX3V3   (float)0.11473
 extern IPMC_DATA_AREA local_data_pool;
 extern char send_byte(USART_TypeDef * UARTx, unsigned char ch);
 //
@@ -97,9 +98,9 @@ void adcValToHumanInterface()
     
     sys_data.sys_vtg_cur->TLR_MEM0_1V5=  (float)sys_data.aADCTripleConvertedValue[1]  * ADC_CONVERT_VAL;//
     sys_data.sys_vtg_cur->ISL_VCORE_IMON=(float)sys_data.aADCTripleConvertedValue[4]  * ADC_CONVERT_VAL;//
-    sys_data.sys_vtg_cur->FP3V3=         (float)sys_data.aADCTripleConvertedValue[7]  * ADC_CONVERT_VAL;//
+    sys_data.sys_vtg_cur->FP3V3=         (float)sys_data.aADCTripleConvertedValue[7]  * ADC_AUX3V3;//
     sys_data.sys_vtg_cur->MB5V=          (float)sys_data.aADCTripleConvertedValue[10] * ADC_CONVERT_VAL_5DC;//
-    sys_data.sys_vtg_cur->MB3V3=         (float)sys_data.aADCTripleConvertedValue[13] * ADC_CONVERT_VAL;
+    sys_data.sys_vtg_cur->MB3V3=         (float)sys_data.aADCTripleConvertedValue[13] * ADC_AUX3V3;
     sys_data.sys_vtg_cur->FP1_DC1V0 =    (float)sys_data.aADCTripleConvertedValue[16] * ADC_CONVERT_VAL;
     sys_data.sys_vtg_cur->PLX8_1V0=      (float)sys_data.aADCTripleConvertedValue[19] * ADC_CONVERT_VAL;
   	sys_data.sys_vtg_cur->FP1V8=         (float)sys_data.aADCTripleConvertedValue[22] * ADC_CONVERT_VAL;
@@ -108,7 +109,7 @@ void adcValToHumanInterface()
     sys_data.sys_vtg_cur->FP_MEM0_1V5=   (float)sys_data.aADCTripleConvertedValue[5]  * ADC_CONVERT_VAL;
     sys_data.sys_vtg_cur->FP6_DC1V0=     (float)sys_data.aADCTripleConvertedValue[8]  * ADC_CONVERT_VAL;
     sys_data.sys_vtg_cur->FP1V2=         (float)sys_data.aADCTripleConvertedValue[11] * ADC_CONVERT_VAL;
-    sys_data.sys_vtg_cur->AUX3V3=        (float)sys_data.aADCTripleConvertedValue[14] * ADC_CONVERT_VAL;
+    sys_data.sys_vtg_cur->AUX3V3=        (float)sys_data.aADCTripleConvertedValue[14] * ADC_AUX3V3;
     sys_data.sys_vtg_cur->MB2V5=         (float)sys_data.aADCTripleConvertedValue[17] * ADC_CONVERT_VAL;
     sys_data.sys_vtg_cur->DC12V=         (float)sys_data.aADCTripleConvertedValue[20] * ADC_CONVERT_VAL_12DC;
     sys_data.sys_vtg_cur->PLX4_1V0=      (float)sys_data.aADCTripleConvertedValue[23] * ADC_CONVERT_VAL;

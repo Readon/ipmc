@@ -2,9 +2,9 @@
 #ifndef _VERSION_H_
 #define _VERSION_H_
 
-#define IPMC_VER_MAIN                0// released times
+#define IPMC_VER_MAIN                1// released times
 #define IPMC_VER_SUB                   0//new componment or module added
-#define IPMC_VER_FIX                     1// fixed time
+#define IPMC_VER_FIX                     0// fixed time
 
 
 #define _VER_STR(r, x, y)       #r"."#x"."#y
@@ -17,7 +17,7 @@
 
 
 #define BDNAME  ""
-#define BDSER   "hds-2017081400001"
+#define BDSER   "ahds-2017081400001"
 #define BDVER   "1.0.0 2017-08"
 #define BDDES   "by Green XY, HangZhou 2017"
 #define SOFTV   IPMC_VER_STR
